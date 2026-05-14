@@ -10,8 +10,6 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans Thai', sans-serif; background: #F7F7F7; color: #1A1A1A; font-size: 14px; line-height: 1.5; }
-
-    /* HEADER */
     .header { background: #fff; border-bottom: 1px solid #E8E8E8; padding: 12px 20px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
     .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
     .logo-mark { width: 34px; height: 34px; background: #E55C00; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: 18px; }
@@ -20,8 +18,6 @@
     .lang-toggle { display: flex; border: 1px solid #E8E8E8; border-radius: 6px; overflow: hidden; }
     .lang-btn { padding: 5px 12px; font-size: 12px; border: none; background: transparent; cursor: pointer; color: #666; font-family: inherit; transition: all 0.15s; }
     .lang-btn.active { background: #E55C00; color: #fff; }
-
-    /* HERO */
     .hero { background: #fff; border-bottom: 1px solid #E8E8E8; padding: 20px; }
     .search-wrap { display: flex; gap: 8px; max-width: 560px; }
     .search-input { flex: 1; padding: 10px 14px; border: 1.5px solid #E8E8E8; border-radius: 8px; font-size: 14px; outline: none; font-family: inherit; transition: border-color 0.15s; }
@@ -29,17 +25,50 @@
     .search-btn { padding: 10px 20px; background: #E55C00; color: #fff; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: inherit; }
     .search-btn:hover { background: #CC5200; }
     .hero-meta { margin-top: 8px; font-size: 12px; color: #999; }
-
-    /* CATEGORIES */
     .categories { background: #fff; border-bottom: 1px solid #E8E8E8; padding: 0 20px; display: flex; overflow-x: auto; }
     .cat-btn { padding: 12px 16px; border: none; background: transparent; font-size: 13px; color: #666; cursor: pointer; border-bottom: 2px solid transparent; white-space: nowrap; font-family: inherit; transition: all 0.15s; }
     .cat-btn.active { color: #E55C00; border-bottom-color: #E55C00; font-weight: 600; }
     .cat-btn:hover { color: #E55C00; }
-
-    /* MAIN */
     .main { padding: 20px; max-width: 1200px; margin: 0 auto; }
-
-    /* DETAIL PANEL */
+    /* BEST DEALS */
+    .deals-section { margin-bottom: 28px; }
+    .section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+    .section-title { font-size: 16px; font-weight: 700; color: #1A1A1A; display: flex; align-items: center; gap: 8px; }
+    .section-badge { background: #E55C00; color: #fff; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 10px; }
+    .deals-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); gap: 10px; }
+    .deal-card { background: #fff; border: 1px solid #E8E8E8; border-radius: 10px; overflow: hidden; cursor: pointer; transition: all 0.15s; position: relative; }
+    .deal-card:hover { border-color: #E55C00; box-shadow: 0 2px 12px rgba(229,92,0,0.12); transform: translateY(-1px); }
+    .deal-rank { position: absolute; top: 8px; left: 8px; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: #fff; z-index: 1; }
+    .rank-1 { background: #FFD700; color: #333; }
+    .rank-2 { background: #B0B0B0; color: #333; }
+    .rank-3 { background: #CD7F32; }
+    .rank-other { background: rgba(0,0,0,0.35); }
+    .deal-img-wrap { height: 120px; background: #F7F7F7; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .deal-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .deal-img-emoji { font-size: 36px; }
+    .deal-body { padding: 8px 10px 10px; }
+    .deal-name { font-size: 11px; font-weight: 500; line-height: 1.4; height: 30px; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; color: #333; margin-bottom: 6px; }
+    .deal-price { font-size: 15px; font-weight: 700; color: #E55C00; }
+    .deal-orig { font-size: 11px; color: #bbb; text-decoration: line-through; margin-left: 4px; }
+    .deal-disc-big { display: inline-block; background: #E55C00; color: #fff; font-size: 11px; font-weight: 700; padding: 2px 7px; border-radius: 4px; margin-top: 4px; }
+    /* PRICE DROPS */
+    .drops-section { margin-bottom: 28px; }
+    .drops-list { display: flex; flex-direction: column; gap: 8px; }
+    .drop-item { background: #fff; border: 1px solid #E8E8E8; border-radius: 10px; padding: 12px 14px; display: flex; align-items: center; gap: 12px; cursor: pointer; transition: border-color 0.15s; }
+    .drop-item:hover { border-color: #2D8016; }
+    .drop-img { width: 48px; height: 48px; border-radius: 8px; background: #F7F7F7; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 22px; overflow: hidden; }
+    .drop-img img { width: 100%; height: 100%; object-fit: cover; }
+    .drop-info { flex: 1; min-width: 0; }
+    .drop-name { font-size: 13px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 3px; }
+    .drop-prices { display: flex; align-items: center; gap: 8px; }
+    .drop-new { font-size: 15px; font-weight: 700; color: #E55C00; }
+    .drop-old { font-size: 12px; color: #bbb; text-decoration: line-through; }
+    .drop-change { margin-left: auto; text-align: right; flex-shrink: 0; }
+    .drop-delta { font-size: 13px; font-weight: 700; }
+    .drop-delta.down { color: #2D8016; }
+    .drop-delta.up { color: #C0392B; }
+    .drop-pct { font-size: 11px; color: #888; margin-top: 1px; }
+    /* DETAIL */
     .detail-panel { background: #fff; border: 1px solid #E8E8E8; border-radius: 12px; padding: 20px; margin-bottom: 20px; }
     .detail-top { display: flex; gap: 16px; margin-bottom: 16px; }
     .detail-img { width: 88px; height: 88px; border-radius: 10px; object-fit: cover; background: #F0F0F0; flex-shrink: 0; }
@@ -54,6 +83,8 @@
     .badge-disc { background: #FFF0E8; color: #E55C00; }
     .badge-low { background: #E8F5E0; color: #2D8016; }
     .badge-shopee { background: #FFF0E8; color: #E55C00; border: 1px solid #FDDCC8; }
+    .badge-drop { background: #E8F5E0; color: #2D8016; }
+    .badge-rise { background: #FDE8E8; color: #C0392B; }
     .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 16px; }
     .stat-box { background: #F7F7F7; border-radius: 8px; padding: 10px 12px; }
     .stat-label { font-size: 11px; color: #999; margin-bottom: 2px; }
@@ -65,13 +96,12 @@
     .buy-btn { display: block; width: 100%; padding: 13px; background: #E55C00; color: #fff; border: none; border-radius: 8px; font-size: 15px; font-weight: 700; cursor: pointer; text-align: center; font-family: inherit; text-decoration: none; }
     .buy-btn:hover { background: #CC5200; }
     .buy-note { text-align: center; font-size: 11px; color: #bbb; margin-top: 6px; }
-
-    /* PRODUCT GRID */
+    /* GRID */
     .section-label { font-size: 12px; color: #999; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 500; margin-bottom: 12px; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 12px; }
     .card { background: #fff; border: 1px solid #E8E8E8; border-radius: 10px; overflow: hidden; cursor: pointer; transition: border-color 0.15s, box-shadow 0.15s; }
     .card:hover { border-color: #E55C00; box-shadow: 0 2px 12px rgba(229,92,0,0.1); }
-    .card.active { border-color: #E55C00; border-width: 2px; box-shadow: 0 2px 12px rgba(229,92,0,0.12); }
+    .card.active { border-color: #E55C00; border-width: 2px; }
     .card-img-wrap { height: 140px; background: #F7F7F7; display: flex; align-items: center; justify-content: center; overflow: hidden; }
     .card-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
     .card-img-emoji { font-size: 44px; }
@@ -80,7 +110,28 @@
     .card-price { font-size: 16px; font-weight: 700; color: #E55C00; }
     .card-orig { font-size: 11px; color: #bbb; text-decoration: line-through; }
     .card-badges { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 5px; }
-
+    .card-change { font-size: 11px; font-weight: 600; margin-top: 4px; }
+    .card-change.down { color: #2D8016; }
+    .card-change.up { color: #C0392B; }
+    /* REQUEST SECTION */
+    .request-section { background: #fff; border: 1px solid #E8E8E8; border-radius: 12px; padding: 28px 24px; margin-top: 32px; text-align: center; }
+    .request-icon { font-size: 40px; margin-bottom: 12px; }
+    .request-title { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+    .request-desc { font-size: 14px; color: #666; margin-bottom: 20px; line-height: 1.7; }
+    .request-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-line { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; background: #06C755; color: #fff; border: none; border-radius: 8px; font-size: 14px; font-weight: 700; cursor: pointer; text-decoration: none; font-family: inherit; }
+    .btn-line:hover { background: #05A847; }
+    .btn-form { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; background: #fff; color: #E55C00; border: 2px solid #E55C00; border-radius: 8px; font-size: 14px; font-weight: 700; cursor: pointer; text-decoration: none; font-family: inherit; }
+    .btn-form:hover { background: #FFF0E8; }
+    .request-form { display: none; margin-top: 20px; text-align: left; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .request-form.visible { display: block; }
+    .form-group { margin-bottom: 12px; }
+    .form-label { font-size: 13px; font-weight: 500; margin-bottom: 4px; display: block; }
+    .form-input { width: 100%; padding: 10px 12px; border: 1.5px solid #E8E8E8; border-radius: 8px; font-size: 14px; font-family: inherit; outline: none; }
+    .form-input:focus { border-color: #E55C00; }
+    .form-submit { width: 100%; padding: 11px; background: #E55C00; color: #fff; border: none; border-radius: 8px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: inherit; margin-top: 4px; }
+    .form-success { text-align: center; padding: 16px; color: #2D8016; font-weight: 600; display: none; }
+    .form-success.visible { display: block; }
     /* STATES */
     .loading { text-align: center; padding: 60px 20px; color: #999; }
     .loading-spinner { width: 32px; height: 32px; border: 3px solid #E8E8E8; border-top-color: #E55C00; border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 12px; }
@@ -89,17 +140,10 @@
     .empty-icon { font-size: 52px; margin-bottom: 14px; }
     .empty-title { font-size: 18px; font-weight: 600; margin-bottom: 8px; }
     .empty-desc { font-size: 14px; color: #999; line-height: 1.6; }
-
-    /* FOOTER */
     .footer { text-align: center; padding: 28px 20px; color: #bbb; font-size: 12px; border-top: 1px solid #E8E8E8; margin-top: 40px; line-height: 1.8; }
-
-    /* RESPONSIVE */
     @media (max-width: 600px) {
       .grid { grid-template-columns: repeat(2, 1fr); }
-      .stats-grid { grid-template-columns: repeat(3, 1fr); }
-      .detail-top { flex-direction: row; }
-      .detail-img, .detail-img-placeholder { width: 72px; height: 72px; }
-      .price-big { font-size: 22px; }
+      .deals-grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
@@ -109,10 +153,10 @@
   <a class="logo" href="/">
     <div class="logo-mark">ค</div>
     <div>
-      <div class="logo-text" id="logo-text">คุ้มค่า</div>
+      <div class="logo-text">คุ้มค่า</div>
       <div class="logo-sub" id="logo-sub">เปรียบราคา Shopee Thailand</div>
-    </div>
-  </a>
+    </div> const SUPABASE_URL = 'https://chjeyridegihzdfifirl.supabase.co';
+  </a> const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNoamV5cmlkZWdpaHpkZmlmaXJsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgzOTQ0NTAsImV4cCI6MjA5Mzk3MDQ1MH0.c4ECh8Ehc5tDTRQZLrEnzm65JLhxoOVuUoLSavRjjbA';
   <div class="lang-toggle">
     <button class="lang-btn active" id="btn-th" onclick="setLang('th')">ไทย</button>
     <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
@@ -121,8 +165,8 @@
 
 <div class="hero">
   <div class="search-wrap">
-    <input class="search-input" id="search-input" type="text" placeholder="ค้นหาสินค้า..." oninput="filterProducts()" />
-    <button class="search-btn" id="search-btn" onclick="filterProducts()">ค้นหา</button>
+    <input class="search-input" id="search-input" type="text" placeholder="ค้นหาสินค้า..." oninput="renderAll()" />
+    <button class="search-btn" id="search-btn" onclick="renderAll()">ค้นหา</button>
   </div>
   <div class="hero-meta" id="hero-meta">อัปเดตทุก 12 ชั่วโมง • ราคาจาก Shopee Thailand</div>
 </div>
@@ -133,15 +177,38 @@
   <button class="cat-btn" data-cat="beauty" onclick="setCategory('beauty')">ความงาม</button>
   <button class="cat-btn" data-cat="home" onclick="setCategory('home')">บ้านและครัว</button>
   <button class="cat-btn" data-cat="fashion" onclick="setCategory('fashion')">แฟชั่น</button>
+  <button class="cat-btn" data-cat="health" onclick="setCategory('health')">สุขภาพ</button>
+  <button class="cat-btn" data-cat="baby" onclick="setCategory('baby')">แม่และเด็ก</button>
+  <button class="cat-btn" data-cat="pet" onclick="setCategory('pet')">สัตว์เลี้ยง</button>
+  <button class="cat-btn" data-cat="auto" onclick="setCategory('auto')">ยานยนต์</button>
 </div>
 
 <main class="main">
   <div id="detail-container"></div>
-  <div id="content">
-    <div class="loading">
-      <div class="loading-spinner"></div>
-      <div>กำลังโหลด...</div>
+  <div id="content"><div class="loading"><div class="loading-spinner"></div><div>กำลังโหลด...</div></div></div>
+
+  <div class="request-section" id="request-section" style="display:none">
+    <div class="request-icon">🔔</div>
+    <div class="request-title" id="req-title">ต้องการให้ติดตามสินค้าอื่น?</div>
+    <div class="request-desc" id="req-desc">แจ้งชื่อสินค้าที่คุณอยากให้เราติดตามราคา<br>เราจะเพิ่มเข้าระบบภายใน 24 ชั่วโมง</div>
+    <div class="request-buttons">
+      <a class="btn-line" id="btn-line" href="https://line.me/ti/p/YOUR_LINE_OA_ID" target="_blank" rel="noopener">
+        💬 LINE OA
+      </a>
+      <button class="btn-form" onclick="toggleRequestForm()" id="btn-suggest">📝 แนะนำสินค้า</button>
     </div>
+    <div class="request-form" id="request-form">
+      <div class="form-group">
+        <label class="form-label" id="form-label-1">ชื่อสินค้าที่ต้องการติดตาม</label>
+        <input class="form-input" id="req-product" type="text" placeholder="เช่น Snail White Serum, Sony WH-1000XM5..." />
+      </div>
+      <div class="form-group">
+        <label class="form-label" id="form-label-2">ช่องทางติดต่อ (ไม่บังคับ)</label>
+        <input class="form-input" id="req-contact" type="text" placeholder="LINE ID หรืออีเมล" />
+      </div>
+      <button class="form-submit" onclick="submitRequest()" id="form-submit-btn">ส่งคำขอ</button>
+    </div>
+    <div class="form-success" id="form-success"></div>
   </div>
 </main>
 
@@ -152,326 +219,232 @@
 </footer>
 
 <script>
-  // ================================================================
-  // CONFIG — YOU MUST REPLACE THESE WITH YOUR REAL VALUES
-  // ================================================================
-  const SUPABASE_URL = 'https://chjeyridegihzdfifirl.supabase.co';
-  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNoamV5cmlkZWdpaHpkZmlmaXJsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgzOTQ0NTAsImV4cCI6MjA5Mzk3MDQ1MH0.c4ECh8Ehc5tDTRQZLrEnzm65JLhxoOVuUoLSavRjjbA';
+  const SUPABASE_URL = 'YOUR_SUPABASE_URL';
+  const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY';
 
-  // ================================================================
-  // INIT
-  // ================================================================
   const { createClient } = supabase;
   const db = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-  let lang = 'th';
-  let currentCategory = 'all';
-  let selectedProductId = null;
-  let allProducts = [];
-  let priceMap = {};
-  let chartInst = null;
+  let lang = 'th', currentCategory = 'all', selectedProductId = null;
+  let allProducts = [], priceMap = {}, prevPriceMap = {}, chartInst = null;
 
-  // ================================================================
-  // TRANSLATIONS
-  // ================================================================
   const T = {
     th: {
-      search: 'ค้นหาสินค้า...', searchBtn: 'ค้นหา',
-      heroMeta: 'อัปเดตทุก 12 ชั่วโมง • ราคาจาก Shopee Thailand',
-      logoSub: 'เปรียบราคา Shopee Thailand',
-      cats: { all:'ทั้งหมด', electronics:'อิเล็กทรอนิกส์', beauty:'ความงาม', home:'บ้านและครัว', fashion:'แฟชั่น' },
-      loading: 'กำลังโหลด...', emptyTitle: 'ยังไม่มีสินค้า',
-      emptyDesc: 'กำลังเพิ่มสินค้าเข้าระบบ\nกลับมาใหม่เร็วๆ นี้',
-      lowestEver: '🎉 ถูกที่สุด', off: '% ลด',
-      allTimeLow: 'ราคาต่ำสุด', allTimeHigh: 'ราคาสูงสุด', avg: 'ราคาเฉลี่ย',
-      priceHistory: 'ประวัติราคา (30 วัน)',
-      buyNow: '🛒 ซื้อบน Shopee',
-      buyNote: 'ราคาและสต็อกอาจเปลี่ยนแปลง กรุณาตรวจสอบที่ Shopee ก่อนสั่งซื้อ',
-      noHistory: 'ยังไม่มีประวัติราคา — จะแสดงหลังจากระบบเก็บข้อมูลได้ 2 ครั้งขึ้นไป',
-      section: 'สินค้าทั้งหมด', noPrice: 'ยังไม่มีราคา',
-      error: 'เกิดข้อผิดพลาดในการโหลดข้อมูล'
+      search:'ค้นหาสินค้า...', searchBtn:'ค้นหา', heroMeta:'อัปเดตทุก 12 ชั่วโมง • ราคาจาก Shopee Thailand', logoSub:'เปรียบราคา Shopee Thailand',
+      cats:{all:'ทั้งหมด',electronics:'อิเล็กทรอนิกส์',beauty:'ความงาม',home:'บ้านและครัว',fashion:'แฟชั่น',health:'สุขภาพ',baby:'แม่และเด็ก',pet:'สัตว์เลี้ยง',auto:'ยานยนต์'},
+      loading:'กำลังโหลด...', emptyTitle:'ยังไม่มีสินค้า', emptyDesc:'กำลังเพิ่มสินค้าเข้าระบบ กลับมาใหม่เร็วๆ นี้',
+      lowestEver:'🎉 ถูกที่สุด', off:'% ลด', allTimeLow:'ราคาต่ำสุด', allTimeHigh:'ราคาสูงสุด', avg:'ราคาเฉลี่ย',
+      priceHistory:'ประวัติราคา (30 วัน)', buyNow:'🛒 ซื้อบน Shopee', buyNote:'ราคาและสต็อกอาจเปลี่ยนแปลง กรุณาตรวจสอบที่ Shopee ก่อนสั่งซื้อ',
+      noHistory:'ยังไม่มีประวัติราคา — จะแสดงหลังระบบเก็บข้อมูลได้ 2 ครั้งขึ้นไป', section:'สินค้าทั้งหมด', noPrice:'ยังไม่มีราคา', error:'เกิดข้อผิดพลาด',
+      bestDeals:'🔥 ดีลเด็ดวันนี้', priceDrops:'📉 ราคาลดล่าสุด', noPriceDrops:'ยังไม่มีข้อมูลการเปลี่ยนแปลงราคา — จะแสดงหลังอัปเดต 2 ครั้งขึ้นไป',
+      reqTitle:'ต้องการให้ติดตามสินค้าอื่น?', reqDesc:'แจ้งชื่อสินค้าที่คุณอยากให้เราติดตามราคา<br>เราจะเพิ่มเข้าระบบภายใน 24 ชั่วโมง',
+      formL1:'ชื่อสินค้าที่ต้องการติดตาม', formL2:'ช่องทางติดต่อ (ไม่บังคับ)', formSubmit:'ส่งคำขอ',
+      formOk:'✅ ได้รับคำขอแล้ว! เราจะเพิ่มสินค้านี้ภายใน 24 ชั่วโมง', btnSuggest:'📝 แนะนำสินค้า',
+      priceDropped:'▼ ลดลง', priceRose:'▲ ขึ้นราคา',
     },
     en: {
-      search: 'Search products...', searchBtn: 'Search',
-      heroMeta: 'Updated every 12 hours • Prices from Shopee Thailand',
-      logoSub: 'Price Tracker Thailand',
-      cats: { all:'All', electronics:'Electronics', beauty:'Beauty', home:'Home & Living', fashion:'Fashion' },
-      loading: 'Loading...', emptyTitle: 'No products yet',
-      emptyDesc: 'We\'re adding products to the system.\nCheck back soon!',
-      lowestEver: '🎉 Lowest ever', off: '% off',
-      allTimeLow: 'All-time low', allTimeHigh: 'All-time high', avg: '30-day avg',
-      priceHistory: 'Price history (30 days)',
-      buyNow: '🛒 Buy on Shopee',
-      buyNote: 'Price and stock may change. Always verify on Shopee before buying.',
-      noHistory: 'No price history yet — will appear after 2+ data collections.',
-      section: 'All products', noPrice: 'No price data',
-      error: 'Error loading data'
+      search:'Search products...', searchBtn:'Search', heroMeta:'Updated every 12 hours • Prices from Shopee Thailand', logoSub:'Price Tracker Thailand',
+      cats:{all:'All',electronics:'Electronics',beauty:'Beauty',home:'Home & Living',fashion:'Fashion',health:'Health',baby:'Mom & Baby',pet:'Pets',auto:'Automotive'},
+      loading:'Loading...', emptyTitle:'No products yet', emptyDesc:'We\'re adding products. Check back soon!',
+      lowestEver:'🎉 Lowest ever', off:'% off', allTimeLow:'All-time low', allTimeHigh:'All-time high', avg:'30-day avg',
+      priceHistory:'Price history (30 days)', buyNow:'🛒 Buy on Shopee', buyNote:'Price and stock may change. Verify on Shopee before buying.',
+      noHistory:'No price history yet — appears after 2+ data collections.', section:'All products', noPrice:'No price data', error:'Error loading data',
+      bestDeals:'🔥 Best Deals Today', priceDrops:'📉 Recent Price Drops', noPriceDrops:'No price change data yet — will appear after 2+ updates.',
+      reqTitle:'Want us to track another product?', reqDesc:'Tell us what you want tracked.<br>We\'ll add it within 24 hours.',
+      formL1:'Product name to track', formL2:'Contact info (optional)', formSubmit:'Submit Request',
+      formOk:'✅ Request received! We\'ll add this product within 24 hours.', btnSuggest:'📝 Suggest a product',
+      priceDropped:'▼ Dropped', priceRose:'▲ Increased',
     }
   };
+  const t = k => T[lang][k] || k;
 
-  const t = key => T[lang][key] || key;
-
-  // ================================================================
-  // LANGUAGE TOGGLE
-  // ================================================================
   function setLang(l) {
     lang = l;
-    document.getElementById('btn-th').className = 'lang-btn' + (l === 'th' ? ' active' : '');
-    document.getElementById('btn-en').className = 'lang-btn' + (l === 'en' ? ' active' : '');
+    document.getElementById('btn-th').className = 'lang-btn'+(l==='th'?' active':'');
+    document.getElementById('btn-en').className = 'lang-btn'+(l==='en'?' active':'');
     document.getElementById('search-input').placeholder = t('search');
     document.getElementById('search-btn').textContent = t('searchBtn');
     document.getElementById('hero-meta').textContent = t('heroMeta');
     document.getElementById('logo-sub').textContent = t('logoSub');
-    document.querySelectorAll('.cat-btn').forEach(btn => {
-      btn.textContent = t('cats')[btn.dataset.cat] || btn.dataset.cat;
-    });
-    renderProducts();
+    document.getElementById('req-title').textContent = t('reqTitle');
+    document.getElementById('req-desc').innerHTML = t('reqDesc');
+    document.getElementById('btn-suggest').textContent = t('btnSuggest');
+    document.getElementById('form-label-1').textContent = t('formL1');
+    document.getElementById('form-label-2').textContent = t('formL2');
+    document.getElementById('form-submit-btn').textContent = t('formSubmit');
+    document.querySelectorAll('.cat-btn').forEach(b => { b.textContent = t('cats')[b.dataset.cat]||b.dataset.cat; });
+    renderAll();
     if (selectedProductId) renderDetail(selectedProductId);
   }
 
-  // ================================================================
-  // CATEGORY & SEARCH
-  // ================================================================
   function setCategory(cat) {
     currentCategory = cat;
-    document.querySelectorAll('.cat-btn').forEach(btn => {
-      btn.classList.toggle('active', btn.dataset.cat === cat);
-    });
+    document.querySelectorAll('.cat-btn').forEach(b => b.classList.toggle('active', b.dataset.cat===cat));
     selectedProductId = null;
     document.getElementById('detail-container').innerHTML = '';
-    renderProducts();
+    renderAll();
   }
 
-  function filterProducts() { renderProducts(); }
-
-  // ================================================================
-  // LOAD DATA FROM SUPABASE
-  // ================================================================
   async function loadData() {
     try {
-      const { data: products, error: pErr } = await db
-        .from('products').select('*').order('created_at', { ascending: false });
-      if (pErr) throw pErr;
+      const { data: prods, error: e1 } = await db.from('products').select('*').order('created_at',{ascending:false});
+      if (e1) throw e1;
+      allProducts = prods || [];
+      if (!allProducts.length) { showEmpty(); document.getElementById('request-section').style.display='block'; return; }
 
-      allProducts = products || [];
+      const { data: prices, error: e2 } = await db.from('prices').select('*').order('scraped_at',{ascending:false});
+      if (e2) throw e2;
 
-      if (allProducts.length === 0) {
-        showEmpty(); return;
-      }
-
-      const { data: prices, error: prErr } = await db
-        .from('prices').select('*').order('scraped_at', { ascending: false });
-      if (prErr) throw prErr;
-
-      priceMap = {};
-      (prices || []).forEach(p => {
+      priceMap = {}; prevPriceMap = {};
+      (prices||[]).forEach(p => {
         if (!priceMap[p.product_id]) priceMap[p.product_id] = p;
+        else if (!prevPriceMap[p.product_id]) prevPriceMap[p.product_id] = p;
       });
 
-      renderProducts();
-    } catch (err) {
+      renderAll();
+      document.getElementById('request-section').style.display = 'block';
+    } catch(err) {
       console.error(err);
-      document.getElementById('content').innerHTML = `
-        <div class="empty-state">
-          <div class="empty-icon">⚠️</div>
-          <div class="empty-title">${t('error')}</div>
-          <div class="empty-desc">${err.message}</div>
-        </div>`;
+      document.getElementById('content').innerHTML = `<div class="empty-state"><div class="empty-icon">⚠️</div><div class="empty-title">${t('error')}</div><div class="empty-desc">${err.message}</div></div>`;
     }
   }
 
-  // ================================================================
-  // LOAD PRICE HISTORY (on demand)
-  // ================================================================
-  async function loadPriceHistory(productId) {
-    const { data } = await db.from('prices').select('price, scraped_at')
-      .eq('product_id', productId).order('scraped_at', { ascending: true }).limit(30);
-    return data || [];
+  async function loadPriceHistory(pid) {
+    const { data } = await db.from('prices').select('price,scraped_at').eq('product_id',pid).order('scraped_at',{ascending:true}).limit(30);
+    return data||[];
   }
 
-  // ================================================================
-  // HELPERS
-  // ================================================================
-  function fmtPrice(p) { return '฿' + Number(p).toLocaleString('th-TH'); }
+  function fmtP(p) { return '฿'+Number(p).toLocaleString('th-TH'); }
+  function catEmoji(cat) { return {electronics:'📱',beauty:'✨',home:'🏠',fashion:'👗',health:'💊',baby:'👶',pet:'🐾',auto:'🚗',general:'🛍️'}[cat]||'🛍️'; }
 
-  function catEmoji(cat) {
-    return { electronics:'📱', beauty:'✨', home:'🏠', fashion:'👗', general:'🛍️' }[cat] || '🛍️';
+  function getPriceChange(pid) {
+    const l = priceMap[pid], p = prevPriceMap[pid];
+    if (!l||!p||l.price===p.price) return null;
+    return { delta: l.price-p.price, pct: Math.round(((l.price-p.price)/p.price)*100) };
   }
 
   function showEmpty() {
-    document.getElementById('content').innerHTML = `
-      <div class="empty-state">
-        <div class="empty-icon">🔍</div>
-        <div class="empty-title">${t('emptyTitle')}</div>
-        <div class="empty-desc">${t('emptyDesc')}</div>
-      </div>`;
+    document.getElementById('content').innerHTML = `<div class="empty-state"><div class="empty-icon">🔍</div><div class="empty-title">${t('emptyTitle')}</div><div class="empty-desc">${t('emptyDesc')}</div></div>`;
   }
 
-  // ================================================================
-  // RENDER PRODUCT GRID
-  // ================================================================
-  function renderProducts() {
-    if (allProducts.length === 0) { showEmpty(); return; }
-    const query = document.getElementById('search-input').value.toLowerCase().trim();
-    const filtered = allProducts.filter(p => {
-      const matchCat = currentCategory === 'all' || p.category === currentCategory;
-      const matchQ = !query || (p.name || '').toLowerCase().includes(query);
-      return matchCat && matchQ;
-    });
-
-    if (filtered.length === 0) {
-      document.getElementById('content').innerHTML = `
-        <div class="empty-state">
-          <div class="empty-icon">🔍</div>
-          <div class="empty-title">${t('emptyTitle')}</div>
-          <div class="empty-desc">${t('emptyDesc')}</div>
-        </div>`; return;
+  function renderAll() {
+    if (!allProducts.length) { showEmpty(); return; }
+    const q = (document.getElementById('search-input')?.value||'').toLowerCase().trim();
+    let html = '';
+    if (currentCategory==='all' && !q) {
+      html += renderBestDeals();
+      html += renderPriceDrops();
     }
+    html += renderGrid(q);
+    document.getElementById('content').innerHTML = html;
+  }
 
-    document.getElementById('content').innerHTML = `
-      <div class="section-label">${t('section')} (${filtered.length})</div>
-      <div class="grid">${filtered.map(renderCard).join('')}</div>`;
+  function renderBestDeals() {
+    const sorted = [...allProducts].filter(p=>priceMap[p.id]?.discount_pct>0)
+      .sort((a,b)=>(priceMap[b.id]?.discount_pct||0)-(priceMap[a.id]?.discount_pct||0)).slice(0,6);
+    if (!sorted.length) return '';
+    const cards = sorted.map((p,i) => {
+      const pr = priceMap[p.id], disc = Math.round(pr.discount_pct);
+      const rc = ['rank-1','rank-2','rank-3','rank-other','rank-other','rank-other'][i];
+      const img = p.image_url ? `<img src="${p.image_url}" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=deal-img-emoji>${catEmoji(p.category)}</div>'"/>` : `<div class="deal-img-emoji">${catEmoji(p.category)}</div>`;
+      return `<div class="deal-card" onclick="selectProduct(${p.id})">
+        <div class="deal-rank ${rc}">${i+1}</div>
+        <div class="deal-img-wrap">${img}</div>
+        <div class="deal-body">
+          <div class="deal-name">${p.name||'สินค้า'}</div>
+          <div><span class="deal-price">${fmtP(pr.price)}</span>${pr.original_price?`<span class="deal-orig">${fmtP(pr.original_price)}</span>`:''}</div>
+          <span class="deal-disc-big">-${disc}%</span>
+        </div></div>`;
+    }).join('');
+    return `<div class="deals-section"><div class="section-header"><div class="section-title">${t('bestDeals')}<span class="section-badge">TOP ${sorted.length}</span></div></div><div class="deals-grid">${cards}</div></div>`;
+  }
+
+  function renderPriceDrops() {
+    const drops = allProducts.map(p=>({p,ch:getPriceChange(p.id)})).filter(x=>x.ch).sort((a,b)=>a.ch.delta-b.ch.delta).slice(0,5);
+    if (!drops.length) return `<div class="drops-section"><div class="section-header"><div class="section-title">${t('priceDrops')}</div></div><div style="color:#bbb;font-size:13px;padding:8px 0">${t('noPriceDrops')}</div></div>`;
+    const items = drops.map(({p,ch}) => {
+      const pr=priceMap[p.id], pv=prevPriceMap[p.id], isDown=ch.delta<0;
+      const img = p.image_url ? `<img src="${p.image_url}" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none'"/>` : catEmoji(p.category);
+      return `<div class="drop-item" onclick="selectProduct(${p.id})">
+        <div class="drop-img">${img}</div>
+        <div class="drop-info"><div class="drop-name">${p.name||'สินค้า'}</div>
+        <div class="drop-prices"><span class="drop-new">${fmtP(pr.price)}</span><span class="drop-old">${fmtP(pv.price)}</span></div></div>
+        <div class="drop-change"><div class="drop-delta ${isDown?'down':'up'}">${isDown?'▼':'▲'} ${fmtP(Math.abs(ch.delta))}</div><div class="drop-pct">${isDown?'':'+'}${ch.pct}%</div></div>
+      </div>`;
+    }).join('');
+    return `<div class="drops-section"><div class="section-header"><div class="section-title">${t('priceDrops')}</div></div><div class="drops-list">${items}</div></div>`;
+  }
+
+  function renderGrid(q) {
+    const filtered = allProducts.filter(p=>(currentCategory==='all'||p.category===currentCategory)&&(!q||(p.name||'').toLowerCase().includes(q)));
+    if (!filtered.length) return `<div class="empty-state"><div class="empty-icon">🔍</div><div class="empty-title">${t('emptyTitle')}</div><div class="empty-desc">${t('emptyDesc')}</div></div>`;
+    return `<div class="section-label">${t('section')} (${filtered.length})</div><div class="grid">${filtered.map(renderCard).join('')}</div>`;
   }
 
   function renderCard(p) {
-    const price = priceMap[p.id];
-    const disc = price?.discount_pct ? Math.round(price.discount_pct) : 0;
-    const imgHtml = p.image_url
-      ? `<img src="${p.image_url}" alt="${p.name}" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-img-emoji>${catEmoji(p.category)}</div>'" />`
-      : `<div class="card-img-emoji">${catEmoji(p.category)}</div>`;
-
-    return `
-      <div class="card ${selectedProductId === p.id ? 'active' : ''}" onclick="selectProduct(${p.id})">
-        <div class="card-img-wrap">${imgHtml}</div>
-        <div class="card-body">
-          <div class="card-name">${p.name || 'สินค้า'}</div>
-          ${price
-            ? `<div class="card-price">${fmtPrice(price.price)}</div>
-               ${price.original_price ? `<div class="card-orig">${fmtPrice(price.original_price)}</div>` : ''}
-               <div class="card-badges">
-                 ${disc > 0 ? `<span class="badge badge-disc">-${disc}%</span>` : ''}
-                 <span class="badge badge-shopee">Shopee TH</span>
-               </div>`
-            : `<div style="font-size:12px;color:#bbb;margin-top:4px">${t('noPrice')}</div>`
-          }
-        </div>
-      </div>`;
+    const pr=priceMap[p.id], disc=pr?.discount_pct?Math.round(pr.discount_pct):0, ch=getPriceChange(p.id);
+    const img = p.image_url ? `<img src="${p.image_url}" alt="${p.name}" loading="lazy" onerror="this.parentNode.innerHTML='<div class=card-img-emoji>${catEmoji(p.category)}</div>'"/>` : `<div class="card-img-emoji">${catEmoji(p.category)}</div>`;
+    const changeHtml = ch ? `<div class="card-change ${ch.delta<0?'down':'up'}">${ch.delta<0?'▼':'▲'} ${fmtP(Math.abs(ch.delta))} (${ch.delta<0?'':'+'}${ch.pct}%)</div>` : '';
+    return `<div class="card ${selectedProductId===p.id?'active':''}" onclick="selectProduct(${p.id})">
+      <div class="card-img-wrap">${img}</div>
+      <div class="card-body">
+        <div class="card-name">${p.name||'สินค้า'}</div>
+        ${pr?`<div class="card-price">${fmtP(pr.price)}</div>${pr.original_price?`<div class="card-orig">${fmtP(pr.original_price)}</div>`:''}<div class="card-badges">${disc>0?`<span class="badge badge-disc">-${disc}%</span>`:''}<span class="badge badge-shopee">Shopee TH</span></div>${changeHtml}`:`<div style="font-size:12px;color:#bbb;margin-top:4px">${t('noPrice')}</div>`}
+      </div></div>`;
   }
 
-  // ================================================================
-  // SELECT PRODUCT — SHOW DETAIL PANEL
-  // ================================================================
-  async function selectProduct(productId) {
-    if (selectedProductId === productId) {
-      selectedProductId = null;
-      document.getElementById('detail-container').innerHTML = '';
-      renderProducts(); return;
-    }
-    selectedProductId = productId;
-    renderProducts();
-
-    const detailEl = document.getElementById('detail-container');
-    detailEl.innerHTML = `<div class="detail-panel"><div class="loading"><div class="loading-spinner"></div><div>${t('loading')}</div></div></div>`;
-    detailEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-    const p = allProducts.find(x => x.id === productId);
-    if (!p) return;
-
-    const price = priceMap[productId];
-    const disc = price?.discount_pct ? Math.round(price.discount_pct) : 0;
-    const history = await loadPriceHistory(productId);
-    const prices = history.map(h => h.price);
-    const low = prices.length ? Math.min(...prices) : price?.price;
-    const high = prices.length ? Math.max(...prices) : price?.price;
-    const avg = prices.length ? Math.round(prices.reduce((a,b)=>a+b,0)/prices.length) : price?.price;
-    const isLowest = price && prices.length > 1 && price.price <= low;
-
-    const imgHtml = p.image_url
-      ? `<img class="detail-img" src="${p.image_url}" alt="${p.name}" onerror="this.outerHTML='<div class=detail-img-placeholder>${catEmoji(p.category)}</div>'" />`
-      : `<div class="detail-img-placeholder">${catEmoji(p.category)}</div>`;
-
-    detailEl.innerHTML = `
-      <div class="detail-panel">
-        <div class="detail-top">
-          ${imgHtml}
-          <div class="detail-info">
-            <div class="detail-name">${p.name || 'สินค้า'}</div>
-            <div class="detail-shop">Shopee Thailand</div>
-            <div>
-              <span class="price-big">${price ? fmtPrice(price.price) : '-'}</span>
-              ${price?.original_price ? `<span class="price-orig-big">${fmtPrice(price.original_price)}</span>` : ''}
-            </div>
-            <div class="badges">
-              ${disc > 0 ? `<span class="badge badge-disc">-${disc}% ${lang==='th'?'ลด':'off'}</span>` : ''}
-              ${isLowest ? `<span class="badge badge-low">${t('lowestEver')}</span>` : ''}
-              <span class="badge badge-shopee">Shopee TH</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="stats-grid">
-          <div class="stat-box">
-            <div class="stat-label">${t('allTimeLow')}</div>
-            <div class="stat-value stat-low">${low ? fmtPrice(low) : '-'}</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-label">${t('allTimeHigh')}</div>
-            <div class="stat-value stat-high">${high ? fmtPrice(high) : '-'}</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-label">${t('avg')}</div>
-            <div class="stat-value">${avg ? fmtPrice(avg) : '-'}</div>
-          </div>
-        </div>
-
-        ${history.length > 1
-          ? `<div class="chart-label">${t('priceHistory')}</div>
-             <div class="chart-wrap"><canvas id="priceChart"></canvas></div>`
-          : `<div style="text-align:center;color:#bbb;font-size:13px;padding:16px 0;margin-bottom:12px">${t('noHistory')}</div>`
-        }
-
-        <a class="buy-btn" href="${p.shopee_url || 'https://shopee.co.th'}" target="_blank" rel="noopener sponsored">${t('buyNow')}</a>
-        <div class="buy-note">${t('buyNote')}</div>
-      </div>`;
-
-    if (history.length > 1) drawChart(history);
+  async function selectProduct(pid) {
+    if (selectedProductId===pid) { selectedProductId=null; document.getElementById('detail-container').innerHTML=''; renderAll(); return; }
+    selectedProductId=pid; renderAll();
+    const el=document.getElementById('detail-container');
+    el.innerHTML=`<div class="detail-panel"><div class="loading"><div class="loading-spinner"></div><div>${t('loading')}</div></div></div>`;
+    el.scrollIntoView({behavior:'smooth',block:'start'});
+    const p=allProducts.find(x=>x.id===pid); if(!p) return;
+    const pr=priceMap[pid], disc=pr?.discount_pct?Math.round(pr.discount_pct):0, ch=getPriceChange(pid);
+    const hist=await loadPriceHistory(pid), prices=hist.map(h=>h.price);
+    const low=prices.length?Math.min(...prices):pr?.price, high=prices.length?Math.max(...prices):pr?.price;
+    const avg=prices.length?Math.round(prices.reduce((a,b)=>a+b,0)/prices.length):pr?.price;
+    const isLowest=pr&&prices.length>1&&pr.price<=low;
+    const imgHtml=p.image_url?`<img class="detail-img" src="${p.image_url}" alt="${p.name}" onerror="this.outerHTML='<div class=detail-img-placeholder>${catEmoji(p.category)}</div>'"/>`:`<div class="detail-img-placeholder">${catEmoji(p.category)}</div>`;
+    const chBadge=ch?`<span class="badge ${ch.delta<0?'badge-drop':'badge-rise'}">${ch.delta<0?'▼':'▲'} ${fmtP(Math.abs(ch.delta))} ${ch.delta<0?t('priceDropped'):t('priceRose')}</span>`:'';
+    el.innerHTML=`<div class="detail-panel">
+      <div class="detail-top">${imgHtml}<div class="detail-info">
+        <div class="detail-name">${p.name||'สินค้า'}</div>
+        <div class="detail-shop">Shopee Thailand</div>
+        <div><span class="price-big">${pr?fmtP(pr.price):'-'}</span>${pr?.original_price?`<span class="price-orig-big">${fmtP(pr.original_price)}</span>`:''}</div>
+        <div class="badges">${disc>0?`<span class="badge badge-disc">-${disc}% ${lang==='th'?'ลด':'off'}</span>`:''}${isLowest?`<span class="badge badge-low">${t('lowestEver')}</span>`:''}${chBadge}<span class="badge badge-shopee">Shopee TH</span></div>
+      </div></div>
+      <div class="stats-grid">
+        <div class="stat-box"><div class="stat-label">${t('allTimeLow')}</div><div class="stat-value stat-low">${low?fmtP(low):'-'}</div></div>
+        <div class="stat-box"><div class="stat-label">${t('allTimeHigh')}</div><div class="stat-value stat-high">${high?fmtP(high):'-'}</div></div>
+        <div class="stat-box"><div class="stat-label">${t('avg')}</div><div class="stat-value">${avg?fmtP(avg):'-'}</div></div>
+      </div>
+      ${hist.length>1?`<div class="chart-label">${t('priceHistory')}</div><div class="chart-wrap"><canvas id="priceChart"></canvas></div>`:`<div style="text-align:center;color:#bbb;font-size:13px;padding:16px 0;margin-bottom:12px">${t('noHistory')}</div>`}
+      <a class="buy-btn" href="${p.shopee_url||'https://shopee.co.th'}" target="_blank" rel="noopener sponsored">${t('buyNow')}</a>
+      <div class="buy-note">${t('buyNote')}</div>
+    </div>`;
+    if (hist.length>1) drawChart(hist);
   }
 
-  // ================================================================
-  // PRICE HISTORY CHART
-  // ================================================================
-  function drawChart(history) {
-    if (chartInst) { chartInst.destroy(); chartInst = null; }
-    const canvas = document.getElementById('priceChart');
-    if (!canvas) return;
-    chartInst = new Chart(canvas, {
-      type: 'line',
-      data: {
-        labels: history.map(h => {
-          const d = new Date(h.scraped_at);
-          return `${d.getDate()}/${d.getMonth()+1}`;
-        }),
-        datasets: [{
-          data: history.map(h => h.price),
-          borderColor: '#E55C00', backgroundColor: 'rgba(229,92,0,0.08)',
-          borderWidth: 2, fill: true, tension: 0.3,
-          pointRadius: 3, pointBackgroundColor: '#E55C00',
-        }]
-      },
-      options: {
-        responsive: true, maintainAspectRatio: false,
-        plugins: { legend: { display: false } },
-        scales: {
-          x: { ticks: { font:{size:10}, color:'#aaa', maxTicksLimit: 7 }, grid: { display: false } },
-          y: { ticks: { font:{size:10}, color:'#aaa', callback: v => '฿'+Number(v).toLocaleString() }, grid: { color: 'rgba(0,0,0,0.05)' } }
-        }
-      }
-    });
+  function drawChart(hist) {
+    if (chartInst) { chartInst.destroy(); chartInst=null; }
+    const canvas=document.getElementById('priceChart'); if(!canvas) return;
+    chartInst=new Chart(canvas,{type:'line',data:{labels:hist.map(h=>{const d=new Date(h.scraped_at);return`${d.getDate()}/${d.getMonth()+1}`;}),datasets:[{data:hist.map(h=>h.price),borderColor:'#E55C00',backgroundColor:'rgba(229,92,0,0.08)',borderWidth:2,fill:true,tension:0.3,pointRadius:3,pointBackgroundColor:'#E55C00'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{ticks:{font:{size:10},color:'#aaa',maxTicksLimit:7},grid:{display:false}},y:{ticks:{font:{size:10},color:'#aaa',callback:v=>'฿'+Number(v).toLocaleString()},grid:{color:'rgba(0,0,0,0.05)'}}}}});
   }
 
-  // ================================================================
-  // START
-  // ================================================================
+  function toggleRequestForm() { document.getElementById('request-form').classList.toggle('visible'); }
+
+  function submitRequest() {
+    const prod=document.getElementById('req-product').value.trim();
+    if (!prod) { alert(lang==='th'?'กรุณาระบุชื่อสินค้า':'Please enter a product name'); return; }
+    document.getElementById('request-form').classList.remove('visible');
+    const s=document.getElementById('form-success');
+    s.textContent=t('formOk'); s.classList.add('visible');
+    setTimeout(()=>s.classList.remove('visible'),5000);
+    document.getElementById('req-product').value='';
+    document.getElementById('req-contact').value='';
+  }
+
   loadData();
 </script>
 </body>
