@@ -29,7 +29,6 @@ module.exports = async function handler(req, res) {
     'https://s.shopee.co.th/4qCSqimZiF',
     'https://s.shopee.co.th/8fPBPnPomn',
     'https://s.shopee.co.th/3qJvevLkNO',
-    'https://s.shopee.co.th/5ApJFOBw6j',
     'https://s.shopee.co.th/3Vh5GOJ0E6',
     'https://s.shopee.co.th/AADzCqoiQL',
     'https://s.shopee.co.th/7KtnpgydM1',
